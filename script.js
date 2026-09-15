@@ -3,7 +3,38 @@ const API_URL =
     window.location.hostname === "localhost"
         ? "http://127.0.0.1:5000"
         : "https://foodhub-page.onrender.com";
+// ================= FOOD ICON BY NAME =================
+function getFoodIcon(name, category) {
+    const n = (name || "").toLowerCase();
 
+    if (n.includes("biryani")) return "🍛";
+    if (n.includes("polao") || n.includes("tehari") || n.includes("khichuri")) return "🍚";
+    if (n.includes("rice")) return "🍚";
+    if (n.includes("burger")) return "🍔";
+    if (n.includes("pizza")) return "🍕";
+    if (n.includes("tacos")) return "🌮";
+    if (n.includes("wings") || n.includes("nuggets")) return "🍗";
+    if (n.includes("fries")) return "🍟";
+    if (n.includes("onion rings")) return "🧅";
+    if (n.includes("shawarma")) return "🌯";
+    if (n.includes("cake") || n.includes("brownie")) return "🍰";
+    if (n.includes("cheesecake")) return "🍰";
+    if (n.includes("ice cream")) return "🍦";
+    if (n.includes("firni") || n.includes("roshogolla") || n.includes("mishti")) return "🍮";
+    if (n.includes("tea")) return "☕";
+    if (n.includes("coffee")) return "☕";
+    if (n.includes("shake") || n.includes("lassi") || n.includes("lemonade")) return "🥤";
+    if (n.includes("borhani")) return "🥛";
+    if (n.includes("water")) return "💧";
+    if (n.includes("drink")) return "🥤";
+
+    if (category === "Meal") return "🍽️";
+    if (category === "Snacks & Fast Food") return "🍔";
+    if (category === "Cold Drinks") return "🥤";
+    if (category === "Desserts") return "🍮";
+
+    return "🍽️";
+}
 let cart = [];
 let currentUser = null;
 let orders = [];
@@ -251,7 +282,7 @@ function renderProducts(productList) {
         }
 
         card.innerHTML = `
-            <div class="food-icon">🍽️</div>
+            <div class="food-icon">${getFoodIcon(product.name, product.category)}</div>
             <h3>${product.name}</h3>
             <div class="price-row">${priceHTML}</div>
             <p class="${product.available ? "available" : "not-available"}">
