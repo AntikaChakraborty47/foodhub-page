@@ -12,6 +12,315 @@ let orders = [];
 let products = [];
 let orderIdCounter = 1;
 let productIdCounter = 1;
+// ================= DEMO PRODUCTS =================
+products.push({
+    id: productIdCounter++,
+    name: "Kacchi Biryani",
+    price: 350,
+    originalPrice: 400,
+    category: "Meal",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Chicken Biryani",
+    price: 260,
+    originalPrice: 300,
+    category: "Meal",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Beef Tehari",
+    price: 280,
+    originalPrice: null,
+    category: "Meal",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Mutton Polao",
+    price: 380,
+    originalPrice: null,
+    category: "Meal",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Chicken Khichuri",
+    price: 220,
+    originalPrice: null,
+    category: "Meal",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Beef Set Menu",
+    price: 450,
+    originalPrice: 500,
+    category: "Meal",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Chicken Set Menu",
+    price: 350,
+    originalPrice: 400,
+    category: "Meal",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Morog Polao",
+    price: 320,
+    originalPrice: null,
+    category: "Meal",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Plain Rice",
+    price: 120,
+    originalPrice: null,
+    category: "Meal",
+    available: true
+});
+
+// ================= SNACKS =================
+products.push({
+    id: productIdCounter++,
+    name: "Chicken Burger",
+    price: 250,
+    originalPrice: 300,
+    category: "Snacks & Fast Food",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Beef Burger",
+    price: 320,
+    originalPrice: null,
+    category: "Snacks & Fast Food",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Chicken Pizza",
+    price: 450,
+    originalPrice: 500,
+    category: "Snacks & Fast Food",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Beef Tacos",
+    price: 320,
+    originalPrice: null,
+    category: "Snacks & Fast Food",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Chicken Wings",
+    price: 280,
+    originalPrice: null,
+    category: "Snacks & Fast Food",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "French Fries",
+    price: 120,
+    originalPrice: null,
+    category: "Snacks & Fast Food",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Chicken Nuggets",
+    price: 180,
+    originalPrice: null,
+    category: "Snacks & Fast Food",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Onion Rings",
+    price: 140,
+    originalPrice: null,
+    category: "Snacks & Fast Food",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Chicken Shawarma",
+    price: 200,
+    originalPrice: null,
+    category: "Snacks & Fast Food",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Beef Shawarma",
+    price: 240,
+    originalPrice: null,
+    category: "Snacks & Fast Food",
+    available: true
+});
+
+// ================= COLD DRINKS =================
+products.push({
+    id: productIdCounter++,
+    name: "Cold Drinks",
+    price: 60,
+    originalPrice: null,
+    category: "Cold Drinks",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Borhani",
+    price: 50,
+    originalPrice: null,
+    category: "Cold Drinks",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Lemonade",
+    price: 70,
+    originalPrice: null,
+    category: "Cold Drinks",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Mango Shake",
+    price: 120,
+    originalPrice: null,
+    category: "Cold Drinks",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Sweet Lassi",
+    price: 80,
+    originalPrice: null,
+    category: "Cold Drinks",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Milk Tea",
+    price: 40,
+    originalPrice: null,
+    category: "Cold Drinks",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Coffee",
+    price: 80,
+    originalPrice: null,
+    category: "Cold Drinks",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Mineral Water",
+    price: 20,
+    originalPrice: null,
+    category: "Cold Drinks",
+    available: true
+});
+
+// ================= DESSERTS =================
+products.push({
+    id: productIdCounter++,
+    name: "Chocolate Cake",
+    price: 150,
+    originalPrice: null,
+    category: "Desserts",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Ice Cream",
+    price: 120,
+    originalPrice: null,
+    category: "Desserts",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Chocolate Brownie",
+    price: 180,
+    originalPrice: null,
+    category: "Desserts",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Cheesecake",
+    price: 220,
+    originalPrice: null,
+    category: "Desserts",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Firni",
+    price: 100,
+    originalPrice: null,
+    category: "Desserts",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Roshogolla",
+    price: 80,
+    originalPrice: null,
+    category: "Desserts",
+    available: true
+});
+
+products.push({
+    id: productIdCounter++,
+    name: "Mishti Doi",
+    price: 90,
+    originalPrice: null,
+    category: "Desserts",
+    available: true
+});
 
 // ================= DEMO ADMIN =================
 users.push({
