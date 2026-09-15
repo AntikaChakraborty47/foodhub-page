@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodHub - Online Food Ordering</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">FoodHub</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#cart">Cart</a>
+            <a href="#adminPanel">Admin Panel</a>
+            <a href="#orders">My Orders</a>
+            <a href="#login">Login</a>
+            <a href="#register">Register</a>
+        </nav>
+        <div id="userInfo" class="user-info"></div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Delicious Food,<br>Delivered to You</h1>
+            <p>Order your favourite food quickly and easily.</p>
+            <button onclick="goToMenu()">Order Now</button>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="section-light">
+        <h2>Our Menu</h2>
+
+        <div class="search-wrapper">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="🔍 Search food items... (e.g., Biryani, Burger, Tea)" 
+                oninput="searchFood()"
+            >
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showCategory('meal', event)">🍽️ Meal</button>
+            <button class="tab-btn" onclick="showCategory('snacks', event)">🍔 Snacks & Fast Food</button>
+            <button class="tab-btn" onclick="showCategory('drinks', event)">🥤 Cold Drinks</button>
+            <button class="tab-btn" onclick="showCategory('desserts', event)">🍰 Desserts</button>
+        </div>
+
+        <div class="menu-category" id="category-meal">
+            <div class="food-container"></div>
+        </div>
+
+        <div class="menu-category hidden" id="category-snacks">
+            <div class="food-container"></div>
+        </div>
+
+        <div class="menu-category hidden" id="category-drinks">
+            <div class="food-container"></div>
+        </div>
+
+        <div class="menu-category hidden" id="category-desserts">
+            <div class="food-container"></div>
+        </div>
+
+        <div id="noResult" class="no-result hidden">
+            <p>😔 No food item found. Try another search.</p>
+        </div>
+
+    </section>
+
+    <!-- CART -->
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <div class="form-box">
+            <div id="cartItems">
+                <p class="empty-text">Your cart is empty.</p>
+            </div>
+
+            <div class="summary-box">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">৳0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Charge</span>
+                    <span id="deliveryCharge">৳0</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span id="cartTotal">৳0</span>
+                </div>
+            </div>
+
+            <div id="freeDeliveryMsg" class="free-delivery-msg"></div>
+
+            <input type="tel" id="orderPhone" placeholder="Mobile Number (e.g., 017XXXXXXXX)" maxlength="11">
+
+            <textarea id="orderAddress" placeholder="Delivery Address"></textarea>
+
+            <div class="delivery-info-box" id="deliveryInfoBox">
+                <p class="delivery-info-title">Delivery Charge</p>
+                <p class="delivery-info-text" id="deliveryInfoText">Add items to see delivery charge</p>
+            </div>
+
+            <div class="bkash-box" id="bkashBox" style="display:none;">
+                <p class="bkash-title">💳 bKash Payment Required</p>
+                <p class="bkash-text">Delivery charge <strong id="bkashAmount">৳60</strong> age bKash e dite hobe.</p>
+                <p class="bkash-number">bKash Number: <strong>01700-000000</strong> (Send Money)</p>
+                <p class="bkash-note">Payment korar por order confirm hobe. Baki taka cash e delivery man ke diben.</p>
+            </div>
+
+            <button onclick="placeOrder()">Place Order</button>
+            <p id="orderMessage"></p>
+        </div>
+    </section>
+
+    <!-- ADMIN PANEL (Product CRUD) -->
+    <section id="adminPanel" class="section-light hidden">
+        <h2>🛠️ Product Management (CRUD)</h2>
+
+        <!-- ① CREATE PRODUCT FORM -->
+        <div class="form-box">
+            <h3 style="text-align:center;margin-bottom:20px;color:#0D7377;">① Create Product</h3>
+            <form id="productForm">
+                <input type="text" id="productName" placeholder="Food Name (e.g., Chicken Burger)">
+                <input type="number" id="productPrice" placeholder="Price (e.g., 250)">
+                <input type="number" id="productOriginalPrice" placeholder="Original Price (optional)">
+                <select id="productCategory">
+                    <option value="">Select Category</option>
+                    <option value="Meal">🍽️ Meal</option>
+                    <option value="Snacks & Fast Food">🍔 Snacks & Fast Food</option>
+                    <option value="Cold Drinks">🥤 Cold Drinks</option>
+                    <option value="Desserts">🍰 Desserts</option>
+                </select>
+                <select id="productAvailable">
+                    <option value="true">Available</option>
+                    <option value="false">Not Available</option>
+                </select>
+                <button type="submit">Add Product</button>
+            </form>
+            <p id="productMessage"></p>
+        </div>
+
+        <!-- ② READ PRODUCTS TABLE -->
+        <div style="max-width:1100px;margin:40px auto 0 auto;overflow-x:auto;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;">
+                <h3 style="color:#0D7377;">② Show All Products</h3>
+                <button type="button" onclick="loadAdminProducts()">Show All Products</button>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Food Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Availability</th>
+                        <th>③④ Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="adminProductList">
+                    <tr><td colspan="6">Click "Show All Products" to load</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- REGISTER -->
+    <section id="register" class="section-light">
+        <h2>Create Account</h2>
+        <div class="form-box">
+            <form id="registerForm">
+                <input type="text" id="username" placeholder="Username">
+                <input type="email" id="email" placeholder="Email">
+                <input type="password" id="password" placeholder="Password (min 8 characters)">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password">
+                <button type="submit">Register</button>
+            </form>
+            <p id="registerMessage"></p>
+        </div>
+    </section>
+
+    <!-- LOGIN -->
+    <section id="login">
+        <h2>Login</h2>
+        <div class="form-box">
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <button type="submit">Login</button>
+            </form>
+            <p id="loginMessage"></p>
+        </div>
+    </section>
+
+    <!-- MY ORDERS -->
+    <section id="orders" class="section-light">
+        <h2>My Orders</h2>
+        <div id="ordersList" class="orders-container">
+            <p class="empty-text">No orders yet.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 FoodHub. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

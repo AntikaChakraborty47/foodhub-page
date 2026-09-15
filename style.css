@@ -1,0 +1,688 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= ROOT VARIABLES ================= */
+:root {
+    --warm-white: #FAF9F6;
+    --teal: #0D7377;
+    --teal-dark: #0A5C5F;
+    --teal-light: #E0F2F1;
+    --text-dark: #1A1A1A;
+    --text-gray: #6B7280;
+    --green: #10B981;
+    --orange: #F59E0B;
+    --red: #EF4444;
+    --border: #E5E7EB;
+    --card: #FFFFFF;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --radius: 10px;
+}
+
+/* ================= BODY ================= */
+body {
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background-color: var(--warm-white);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* ================= NAVBAR ================= */
+header {
+    background-color: var(--teal);
+    padding: 16px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+.logo::before { content: "🍔 "; }
+
+nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+nav a:hover { background-color: rgba(255, 255, 255, 0.15); }
+
+.user-info {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: right;
+}
+
+.user-info button {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    font-size: 13px;
+    margin-left: 8px;
+}
+
+.user-info button:hover { background-color: rgba(255, 255, 255, 0.3); }
+
+/* ================= HERO ================= */
+.hero {
+    background-color: var(--teal-light);
+    padding: 80px 7%;
+    text-align: center;
+}
+
+.hero-content { max-width: 700px; margin: 0 auto; }
+
+.hero h1 {
+    font-size: 42px;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.hero p {
+    font-size: 17px;
+    color: var(--text-gray);
+    margin-bottom: 28px;
+}
+
+/* ================= BUTTON ================= */
+button {
+    background-color: var(--teal);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: background-color 0.2s ease;
+}
+
+button:hover { background-color: var(--teal-dark); }
+
+/* ================= SECTIONS ================= */
+section { padding: 60px 7%; }
+.section-light { background-color: var(--teal-light); }
+
+section h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    letter-spacing: -0.5px;
+}
+
+/* ================= SEARCH BAR ================= */
+.search-wrapper {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    padding: 0 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 14px 22px;
+    border: 2px solid var(--border);
+    border-radius: 30px;
+    font-size: 15px;
+    font-family: inherit;
+    background-color: white;
+    color: var(--text-dark);
+    transition: all 0.25s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 4px rgba(13, 115, 119, 0.12);
+}
+
+.search-input::placeholder { color: var(--text-gray); }
+
+/* ================= TABS ================= */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+.tab-btn {
+    background-color: white;
+    color: var(--text-dark);
+    border: 2px solid var(--border);
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+}
+
+.tab-btn:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    background-color: white;
+}
+
+.tab-btn.active {
+    background-color: var(--teal);
+    color: white;
+    border-color: var(--teal);
+    box-shadow: 0 4px 12px rgba(13, 115, 119, 0.25);
+}
+
+/* ================= MENU CATEGORY ================= */
+.menu-category { animation: fadeIn 0.4s ease; }
+.menu-category.hidden { display: none; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= FOOD CARDS ================= */
+.food-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.food-card {
+    background-color: var(--card);
+    padding: 24px;
+    border-radius: var(--radius);
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.food-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.food-icon { font-size: 48px; margin-bottom: 14px; }
+
+.food-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.food-card p {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.price-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.old-price {
+    font-size: 15px;
+    color: var(--text-gray);
+    text-decoration: line-through;
+}
+
+.new-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--teal);
+}
+
+.discount-badge {
+    background-color: var(--orange);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+}
+
+.available {
+    color: var(--green);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.not-available {
+    color: var(--red);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* ================= NO RESULT ================= */
+.no-result {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 16px;
+    color: var(--text-gray);
+}
+
+.no-result.hidden { display: none; }
+.no-result p { margin: 0; }
+
+/* ================= FORM BOX ================= */
+.form-box {
+    max-width: 520px;
+    margin: 0 auto;
+    background-color: var(--card);
+    padding: 36px 32px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    background-color: var(--warm-white);
+    color: var(--text-dark);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(13, 115, 119, 0.12);
+    background-color: white;
+}
+
+textarea {
+    height: 90px;
+    resize: none;
+    margin-bottom: 16px;
+}
+
+input::placeholder, textarea::placeholder { color: var(--text-gray); }
+
+#registerMessage, #loginMessage, #orderMessage, #productMessage {
+    text-align: center;
+    margin-top: 16px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--teal);
+}
+
+/* ================= CART ================= */
+#cartItems {
+    background-color: var(--warm-white);
+    padding: 16px 18px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    min-height: 60px;
+    border: 1px solid var(--border);
+}
+
+.empty-text {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 14px;
+    margin: 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-item:last-child { border-bottom: none; }
+
+.cart-item-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-dark);
+    flex: 1;
+}
+
+.cart-item-price {
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 12px;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: var(--red);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.remove-btn:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.summary-box {
+    background-color: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.total-row {
+    border-top: 1px solid var(--border);
+    margin-top: 6px;
+    padding-top: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--teal);
+}
+
+.free-delivery-msg {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 14px;
+    min-height: 20px;
+}
+
+/* ================= DELIVERY INFO ================= */
+.delivery-info-box {
+    background-color: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+}
+
+.delivery-info-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.delivery-info-text {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin: 0;
+}
+
+.delivery-info-text.free {
+    color: var(--green);
+    font-weight: 700;
+}
+
+.delivery-info-text.charge {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+/* ================= BKASH BOX ================= */
+.bkash-box {
+    background-color: #FFF4E6;
+    border: 1.5px solid var(--orange);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+}
+
+.bkash-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 8px;
+}
+
+.bkash-text {
+    font-size: 14px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.bkash-text strong { color: var(--orange); font-size: 16px; }
+
+.bkash-number {
+    font-size: 14px;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px dashed var(--orange);
+}
+
+.bkash-number strong { color: var(--teal); }
+
+.bkash-note {
+    font-size: 12px;
+    color: var(--text-gray);
+    margin: 0;
+    font-style: italic;
+}
+
+/* ================= ORDERS ================= */
+.orders-container {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.order-card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.order-id {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 15px;
+}
+
+.order-status {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+}
+
+.status-pending {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: var(--orange);
+}
+
+.status-confirmed {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--green);
+}
+
+.order-items {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+}
+
+.order-total {
+    font-weight: 700;
+    color: var(--teal);
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.order-actions { display: flex; gap: 10px; }
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: 6px;
+}
+
+.btn-confirm { background-color: var(--green); }
+.btn-confirm:hover { background-color: #059669; }
+
+.btn-cancel { background-color: var(--red); }
+.btn-cancel:hover { background-color: #DC2626; }
+
+.confirmed-msg {
+    color: var(--green);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 0;
+}
+
+/* ================= ADMIN PANEL ================= */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.admin-table thead {
+    background-color: var(--teal);
+    color: white;
+}
+
+.admin-table th, .admin-table td {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.admin-table th {
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-table tbody tr:hover { background-color: var(--warm-white); }
+.admin-table tbody tr:last-child td { border-bottom: none; }
+
+.admin-table button {
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+}
+
+.admin-table .delete-button { background-color: var(--red); }
+.admin-table .delete-button:hover { background-color: #DC2626; }
+
+.hidden { display: none !important; }
+
+/* ================= FOOTER ================= */
+footer {
+    background-color: var(--teal);
+    color: white;
+    text-align: center;
+    padding: 26px 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 12px; padding: 14px 5%; }
+    nav { flex-wrap: wrap; justify-content: center; }
+    nav a { font-size: 13px; padding: 6px 10px; }
+    .user-info { text-align: center; }
+    .hero { padding: 60px 6%; }
+    .hero h1 { font-size: 28px; }
+    .hero p { font-size: 15px; }
+    section { padding: 45px 5%; }
+    section h2 { font-size: 24px; margin-bottom: 30px; }
+    .form-box { padding: 26px 20px; }
+    .food-card { padding: 20px; }
+    .tabs { gap: 8px; }
+    .tab-btn { padding: 10px 16px; font-size: 13px; }
+    .search-input { font-size: 14px; padding: 12px 18px; }
+}
